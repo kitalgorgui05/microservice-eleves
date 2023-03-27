@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity Eleve.
+    -->
+    <changeSet id="20221205154033-1" author="jhipster">
+        <createTable tableName="eleves">
+            <column name="id" type="varchar(32)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="photo" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="photo_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="matricule" type="varchar(30)">
+                <constraints nullable="false" />
+            </column>
+            <column name="prenom" type="varchar(30)">
+                <constraints nullable="false" />
+            </column>
+            <column name="nom" type="varchar(30)">
+                <constraints nullable="false" />
+            </column>
+            <column name="sexe" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="adresse" type="${clobType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="telephone" type="varchar(12)">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_eleves_telephone" />
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_eleves_email" />
+            </column>
+            <column name="date_naissance" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="lieu_naissance" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="tuteur_id" type="varchar(32)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20221205154033-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20221205154033-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/eleves.csv"
+                  separator=";"
+                  tableName="eleves">
+            <column name="id" type="string"/>
+            <column name="photo" type="blob"/>
+            <column name="photo_content_type" type="string"/>
+            <column name="matricule" type="string"/>
+            <column name="prenom" type="string"/>
+            <column name="nom" type="string"/>
+            <column name="sexe" type="string"/>
+            <column name="adresse" type="clob"/>
+            <column name="telephone" type="string"/>
+            <column name="email" type="string"/>
+            <column name="date_naissance" type="date"/>
+            <column name="lieu_naissance" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

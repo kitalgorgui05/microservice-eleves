@@ -1,0 +1,57 @@
+{
+  "name": "Inscription",
+  "fields": [
+    {
+      "fieldName": "dateInscription",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "classe",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "transport",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "cantine",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "Etat",
+      "fieldValues": "INSCRIT,NON_INSCRIT",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "eleve",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "eleve",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "annee",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "annee",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20221205153933",
+  "entityTableName": "inscriptions",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "Inscriptiondb",
+  "applications": "*",
+  "microserviceName": "Inscriptiondb"
+}

@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.memoire.kital.raph"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "microservice",
+    "baseName": "Inscriptiondb",
+    "packageName": "com.memoire.kital.raph",
+    "packageFolder": "com/memoire/kital/raph",
+    "serverPort": "8888",
+    "authenticationType": "oauth2",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MjdmN2RjMmJkOTQzNTE4Y2I5MGVjOWEzNTZmZjlkNzFhZGRlNDg0NjNlNDdmNDU2OWZiOWUwN2VmMTYxYzJhYzU3MDA4ZGRiNWRiMWNkMDBmMGEzMDVhMmViMjJkNjlmYmY0Y2EyYmE5NmM4ZTRmZTQwYTQ5YWI3ODE4ZjlhNDc=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1670253517955,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
