@@ -101,18 +101,18 @@ public class EleveResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Eleve createEntity(EntityManager em) {
-        Eleve eleve = new Eleve()
-            .photo(DEFAULT_PHOTO)
-            .photoContentType(DEFAULT_PHOTO_CONTENT_TYPE)
-            .matricule(DEFAULT_MATRICULE)
-            .prenom(DEFAULT_PRENOM)
-            .nom(DEFAULT_NOM)
-            .sexe(DEFAULT_SEXE)
-            .adresse(DEFAULT_ADRESSE)
-            .telephone(DEFAULT_TELEPHONE)
-            .email(DEFAULT_EMAIL)
-            .dateNaissance(DEFAULT_DATE_NAISSANCE)
-            .lieuNaissance(DEFAULT_LIEU_NAISSANCE);
+        Eleve eleve = new Eleve();
+            eleve.setPhoto(DEFAULT_PHOTO);
+            eleve.setPhotoContentType(DEFAULT_PHOTO_CONTENT_TYPE);
+            eleve.setMatricule(DEFAULT_MATRICULE);
+            eleve.setPrenom(DEFAULT_PRENOM);
+            eleve.setNom(DEFAULT_NOM);
+            eleve.setSexe(DEFAULT_SEXE);
+            eleve.setAdresse(DEFAULT_ADRESSE);
+            eleve.setTelephone(DEFAULT_TELEPHONE);
+            eleve.setEmail(DEFAULT_EMAIL);
+            eleve.setDateNaissance(DEFAULT_DATE_NAISSANCE);
+            eleve.setLieuNaissance(DEFAULT_LIEU_NAISSANCE);
         return eleve;
     }
     /**
@@ -122,18 +122,18 @@ public class EleveResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Eleve createUpdatedEntity(EntityManager em) {
-        Eleve eleve = new Eleve()
-            .photo(UPDATED_PHOTO)
-            .photoContentType(UPDATED_PHOTO_CONTENT_TYPE)
-            .matricule(UPDATED_MATRICULE)
-            .prenom(UPDATED_PRENOM)
-            .nom(UPDATED_NOM)
-            .sexe(UPDATED_SEXE)
-            .adresse(UPDATED_ADRESSE)
-            .telephone(UPDATED_TELEPHONE)
-            .email(UPDATED_EMAIL)
-            .dateNaissance(UPDATED_DATE_NAISSANCE)
-            .lieuNaissance(UPDATED_LIEU_NAISSANCE);
+        Eleve eleve = new Eleve();
+            eleve.setPhoto(UPDATED_PHOTO);
+            eleve.setPhotoContentType(UPDATED_PHOTO_CONTENT_TYPE);
+            eleve.setMatricule(UPDATED_MATRICULE);
+            eleve.setPrenom(UPDATED_PRENOM);
+            eleve.setNom(UPDATED_NOM);
+            eleve.setSexe(UPDATED_SEXE);
+            eleve.setAdresse(UPDATED_ADRESSE);
+            eleve.setTelephone(UPDATED_TELEPHONE);
+            eleve.setEmail(UPDATED_EMAIL);
+            eleve.setDateNaissance(UPDATED_DATE_NAISSANCE);
+            eleve.setLieuNaissance(UPDATED_LIEU_NAISSANCE);
         return eleve;
     }
 
@@ -1087,18 +1087,18 @@ public class EleveResourceIT {
         Eleve updatedEleve = eleveRepository.findById(eleve.getId()).get();
         // Disconnect from session so that the updates on updatedEleve are not directly saved in db
         em.detach(updatedEleve);
-        updatedEleve
-            .photo(UPDATED_PHOTO)
-            .photoContentType(UPDATED_PHOTO_CONTENT_TYPE)
-            .matricule(UPDATED_MATRICULE)
-            .prenom(UPDATED_PRENOM)
-            .nom(UPDATED_NOM)
-            .sexe(UPDATED_SEXE)
-            .adresse(UPDATED_ADRESSE)
-            .telephone(UPDATED_TELEPHONE)
-            .email(UPDATED_EMAIL)
-            .dateNaissance(UPDATED_DATE_NAISSANCE)
-            .lieuNaissance(UPDATED_LIEU_NAISSANCE);
+
+            updatedEleve.setPhoto(UPDATED_PHOTO);
+            updatedEleve.setPhotoContentType(UPDATED_PHOTO_CONTENT_TYPE);
+            updatedEleve.setMatricule(UPDATED_MATRICULE);
+            updatedEleve.setPrenom(UPDATED_PRENOM);
+            updatedEleve.setNom(UPDATED_NOM);
+            updatedEleve.setSexe(UPDATED_SEXE);
+            updatedEleve.setAdresse(UPDATED_ADRESSE);
+            updatedEleve.setTelephone(UPDATED_TELEPHONE);
+            updatedEleve.setEmail(UPDATED_EMAIL);
+            updatedEleve.setDateNaissance(UPDATED_DATE_NAISSANCE);
+            updatedEleve.setLieuNaissance(UPDATED_LIEU_NAISSANCE);
         EleveDTO eleveDTO = eleveMapper.toDto(updatedEleve);
 
         restEleveMockMvc.perform(put("/api/eleves").with(csrf())

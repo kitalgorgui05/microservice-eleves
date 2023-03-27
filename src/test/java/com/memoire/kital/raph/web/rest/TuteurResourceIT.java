@@ -80,12 +80,12 @@ public class TuteurResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Tuteur createEntity(EntityManager em) {
-        Tuteur tuteur = new Tuteur()
-            .prenom(DEFAULT_PRENOM)
-            .nom(DEFAULT_NOM)
-            .adresse(DEFAULT_ADRESSE)
-            .email(DEFAULT_EMAIL)
-            .sexe(DEFAULT_SEXE);
+        Tuteur tuteur = new Tuteur();
+            tuteur.setPrenom(DEFAULT_PRENOM);
+            tuteur.setNom(DEFAULT_NOM);
+            tuteur.setAdresse(DEFAULT_ADRESSE);
+            tuteur.setEmail(DEFAULT_EMAIL);
+            tuteur.setSexe(DEFAULT_SEXE);
         return tuteur;
     }
     /**
@@ -95,12 +95,12 @@ public class TuteurResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Tuteur createUpdatedEntity(EntityManager em) {
-        Tuteur tuteur = new Tuteur()
-            .prenom(UPDATED_PRENOM)
-            .nom(UPDATED_NOM)
-            .adresse(UPDATED_ADRESSE)
-            .email(UPDATED_EMAIL)
-            .sexe(UPDATED_SEXE);
+        Tuteur tuteur = new Tuteur();
+            tuteur.setPrenom(UPDATED_PRENOM);
+            tuteur.setNom(UPDATED_NOM);
+            tuteur.setAdresse(UPDATED_ADRESSE);
+            tuteur.setEmail(UPDATED_EMAIL);
+            tuteur.setSexe(UPDATED_SEXE);
         return tuteur;
     }
 
@@ -631,12 +631,11 @@ public class TuteurResourceIT {
         Tuteur updatedTuteur = tuteurRepository.findById(tuteur.getId()).get();
         // Disconnect from session so that the updates on updatedTuteur are not directly saved in db
         em.detach(updatedTuteur);
-        updatedTuteur
-            .prenom(UPDATED_PRENOM)
-            .nom(UPDATED_NOM)
-            .adresse(UPDATED_ADRESSE)
-            .email(UPDATED_EMAIL)
-            .sexe(UPDATED_SEXE);
+        updatedTuteur.setPrenom(UPDATED_PRENOM);
+        updatedTuteur.setNom(UPDATED_NOM);
+        updatedTuteur.setAdresse(UPDATED_ADRESSE);
+        updatedTuteur.setEmail(UPDATED_EMAIL);
+        updatedTuteur.setSexe(UPDATED_SEXE);
         TuteurDTO tuteurDTO = tuteurMapper.toDto(updatedTuteur);
 
         restTuteurMockMvc.perform(put("/api/tuteurs").with(csrf())

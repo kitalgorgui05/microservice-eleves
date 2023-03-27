@@ -76,10 +76,10 @@ public class AnneeResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Annee createEntity(EntityManager em) {
-        Annee annee = new Annee()
-            .nom(DEFAULT_NOM)
-            .dateDebut(DEFAULT_DATE_DEBUT)
-            .dateFin(DEFAULT_DATE_FIN);
+        Annee annee = new Annee();
+        annee.setNom(DEFAULT_NOM);
+        annee.setDateDebut(DEFAULT_DATE_DEBUT);
+        annee.setDateFin(DEFAULT_DATE_FIN);
         return annee;
     }
     /**
@@ -89,10 +89,10 @@ public class AnneeResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Annee createUpdatedEntity(EntityManager em) {
-        Annee annee = new Annee()
-            .nom(UPDATED_NOM)
-            .dateDebut(UPDATED_DATE_DEBUT)
-            .dateFin(UPDATED_DATE_FIN);
+        Annee annee = new Annee();
+            annee.setNom(UPDATED_NOM);
+            annee.setDateDebut(UPDATED_DATE_DEBUT);
+            annee.setDateFin(UPDATED_DATE_FIN);
         return annee;
     }
 
@@ -597,10 +597,9 @@ public class AnneeResourceIT {
         Annee updatedAnnee = anneeRepository.findById(annee.getId()).get();
         // Disconnect from session so that the updates on updatedAnnee are not directly saved in db
         em.detach(updatedAnnee);
-        updatedAnnee
-            .nom(UPDATED_NOM)
-            .dateDebut(UPDATED_DATE_DEBUT)
-            .dateFin(UPDATED_DATE_FIN);
+        updatedAnnee.setNom(UPDATED_NOM);
+        updatedAnnee.setDateDebut(UPDATED_DATE_DEBUT);
+        updatedAnnee.setDateFin(UPDATED_DATE_FIN);
         AnneeDTO anneeDTO = anneeMapper.toDto(updatedAnnee);
 
         restAnneeMockMvc.perform(put("/api/annees").with(csrf())

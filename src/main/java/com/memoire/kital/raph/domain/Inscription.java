@@ -63,4 +63,12 @@ public class Inscription implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = "inscriptions", allowSetters = true)
     private Annee annee;
+
+    public boolean isCantine() {
+        return false;
+    }
+
+    public boolean isTransport() {
+        return false;
+    }
 }

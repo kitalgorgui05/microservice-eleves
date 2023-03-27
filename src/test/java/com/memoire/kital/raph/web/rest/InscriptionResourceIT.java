@@ -92,15 +92,12 @@ public class InscriptionResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Inscription createEntity(EntityManager em) {
-        Inscription inscription = new Inscription()
-            .dateInscription(DEFAULT_DATE_INSCRIPTION)
-            .classe(DEFAULT_CLASSE)
-            .transport(DEFAULT_TRANSPORT)
-            .groupeTransport(DEFAULT_GROUPE_TRANSPORT)
-            .cantine(DEFAULT_CANTINE)
-            .groupeCantine(DEFAULT_GROUPE_CANTINE)
-            .paiement(DEFAULT_PAIEMENT)
-            .statut(DEFAULT_STATUT);
+        Inscription inscription = new Inscription();
+            inscription.setDateInscription(DEFAULT_DATE_INSCRIPTION);
+            inscription.setClasse(DEFAULT_CLASSE);
+            inscription.setTransport(DEFAULT_TRANSPORT);
+            inscription.setCantine(DEFAULT_CANTINE);
+            inscription.setStatut(DEFAULT_STATUT);
         return inscription;
     }
     /**
@@ -110,15 +107,12 @@ public class InscriptionResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Inscription createUpdatedEntity(EntityManager em) {
-        Inscription inscription = new Inscription()
-            .dateInscription(UPDATED_DATE_INSCRIPTION)
-            .classe(UPDATED_CLASSE)
-            .transport(UPDATED_TRANSPORT)
-            .groupeTransport(UPDATED_GROUPE_TRANSPORT)
-            .cantine(UPDATED_CANTINE)
-            .groupeCantine(UPDATED_GROUPE_CANTINE)
-            .paiement(UPDATED_PAIEMENT)
-            .statut(UPDATED_STATUT);
+        Inscription inscription = new Inscription();
+        inscription.setDateInscription(UPDATED_DATE_INSCRIPTION);
+        inscription.setClasse(UPDATED_CLASSE);
+        inscription.setTransport(UPDATED_TRANSPORT);
+        inscription.setCantine(UPDATED_CANTINE);
+        inscription.setStatut(UPDATED_STATUT);
         return inscription;
     }
 
@@ -145,10 +139,7 @@ public class InscriptionResourceIT {
         assertThat(testInscription.getDateInscription()).isEqualTo(DEFAULT_DATE_INSCRIPTION);
         assertThat(testInscription.getClasse()).isEqualTo(DEFAULT_CLASSE);
         assertThat(testInscription.isTransport()).isEqualTo(DEFAULT_TRANSPORT);
-        assertThat(testInscription.getGroupeTransport()).isEqualTo(DEFAULT_GROUPE_TRANSPORT);
         assertThat(testInscription.isCantine()).isEqualTo(DEFAULT_CANTINE);
-        assertThat(testInscription.getGroupeCantine()).isEqualTo(DEFAULT_GROUPE_CANTINE);
-        assertThat(testInscription.getPaiement()).isEqualTo(DEFAULT_PAIEMENT);
         assertThat(testInscription.getStatut()).isEqualTo(DEFAULT_STATUT);
     }
 
@@ -218,8 +209,6 @@ public class InscriptionResourceIT {
     public void checkPaiementIsRequired() throws Exception {
         int databaseSizeBeforeTest = inscriptionRepository.findAll().size();
         // set the field null
-        inscription.setPaiement(null);
-
         // Create the Inscription, which fails.
         InscriptionDTO inscriptionDTO = inscriptionMapper.toDto(inscription);
 
@@ -935,15 +924,12 @@ public class InscriptionResourceIT {
         Inscription updatedInscription = inscriptionRepository.findById(inscription.getId()).get();
         // Disconnect from session so that the updates on updatedInscription are not directly saved in db
         em.detach(updatedInscription);
-        updatedInscription
-            .dateInscription(UPDATED_DATE_INSCRIPTION)
-            .classe(UPDATED_CLASSE)
-            .transport(UPDATED_TRANSPORT)
-            .groupeTransport(UPDATED_GROUPE_TRANSPORT)
-            .cantine(UPDATED_CANTINE)
-            .groupeCantine(UPDATED_GROUPE_CANTINE)
-            .paiement(UPDATED_PAIEMENT)
-            .statut(UPDATED_STATUT);
+
+        updatedInscription.setDateInscription(UPDATED_DATE_INSCRIPTION);
+        updatedInscription.setClasse(UPDATED_CLASSE);
+        updatedInscription.setTransport(UPDATED_TRANSPORT);
+        updatedInscription.setCantine(UPDATED_CANTINE);
+        updatedInscription.setStatut(UPDATED_STATUT);
         InscriptionDTO inscriptionDTO = inscriptionMapper.toDto(updatedInscription);
 
         restInscriptionMockMvc.perform(put("/api/inscriptions").with(csrf())
@@ -958,10 +944,7 @@ public class InscriptionResourceIT {
         assertThat(testInscription.getDateInscription()).isEqualTo(UPDATED_DATE_INSCRIPTION);
         assertThat(testInscription.getClasse()).isEqualTo(UPDATED_CLASSE);
         assertThat(testInscription.isTransport()).isEqualTo(UPDATED_TRANSPORT);
-        assertThat(testInscription.getGroupeTransport()).isEqualTo(UPDATED_GROUPE_TRANSPORT);
         assertThat(testInscription.isCantine()).isEqualTo(UPDATED_CANTINE);
-        assertThat(testInscription.getGroupeCantine()).isEqualTo(UPDATED_GROUPE_CANTINE);
-        assertThat(testInscription.getPaiement()).isEqualTo(UPDATED_PAIEMENT);
         assertThat(testInscription.getStatut()).isEqualTo(UPDATED_STATUT);
     }
 
