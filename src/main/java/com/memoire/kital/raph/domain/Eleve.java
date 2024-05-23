@@ -11,6 +11,9 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import com.memoire.kital.raph.domain.enumeration.Sexe;
 import org.hibernate.annotations.GenericGenerator;
@@ -38,9 +41,8 @@ public class Eleve implements Serializable {
     @Column(name = "photo_content_type")
     private String photoContentType;
 
-    @NotNull
     @Size(min = SizeMapper.SizeMapperEleve.MIN, max = SizeMapper.SizeMapperEleve.MAX)
-    @Column(name = "matricule", length = SizeMapper.SizeMapperEleve.MAX, nullable = false)
+    @Column(name = "matricule", length = SizeMapper.SizeMapperEleve.MAX)
     private String matricule;
 
     @NotNull

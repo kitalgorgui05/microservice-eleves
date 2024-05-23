@@ -27,7 +27,7 @@
                 <constraints nullable="true" />
             </column>
             <column name="statut" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="eleve_id" type="varchar(32)">
                 <constraints nullable="true" />

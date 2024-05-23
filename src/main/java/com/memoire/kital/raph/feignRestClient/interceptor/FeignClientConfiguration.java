@@ -10,7 +10,7 @@ public class FeignClientConfiguration implements RequestInterceptor{
     @Override
     public void apply(RequestTemplate requestTemplate) {
         String token = SecurityUtils.getJwtToken();
-        if(null != token && !token.trim().isEmpty()) {
+        if(null != token && !token.trim().isEmpty()){
             requestTemplate.header("Authorization", "Bearer " + token);
         }
     }

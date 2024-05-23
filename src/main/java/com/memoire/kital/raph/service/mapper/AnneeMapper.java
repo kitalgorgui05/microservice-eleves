@@ -11,9 +11,6 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = {})
 public interface AnneeMapper extends EntityMapper<AnneeDTO, Annee> {
-
-
-
     default Annee fromId(String id) {
         if (id == null) {
             return null;

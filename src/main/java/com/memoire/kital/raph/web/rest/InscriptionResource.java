@@ -58,7 +58,7 @@ public class InscriptionResource {
         }
         InscriptionDTO result = inscriptionService.save(inscriptionDTO);
         return ResponseEntity.created(new URI("/api/inscriptions/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getEleve().getPrenom().toString()+" "+result.getEleve().getNom().toString()))
             .body(result);
     }
 

@@ -2,7 +2,8 @@ package com.memoire.kital.raph.repository;
 
 import com.memoire.kital.raph.domain.Tuteur;
 
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 /**

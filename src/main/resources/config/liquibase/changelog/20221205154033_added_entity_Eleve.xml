@@ -23,7 +23,7 @@
                 <constraints nullable="true" />
             </column>
             <column name="matricule" type="varchar(30)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="prenom" type="varchar(30)">
                 <constraints nullable="false" />

@@ -51,12 +51,11 @@ public class Inscription implements Serializable {
     @Column(name = "cantine")
     private Boolean cantine;
 
-    @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "statut", nullable = false)
+    @Column(name = "statut", nullable = true)
     private Etat statut;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "inscriptions", allowSetters = true)
     private Eleve eleve;
 
